@@ -39,10 +39,10 @@ class Jwt {
 
   static bool isExpired(String /*!*/ token) {
     try {
-      final Map<String, dynamic> decodedToken = parseJwt(token);
-      if (decodedToken != null) {
+      final Map<String, dynamic> payload = parseJwt(token);
+      if (payload != null) {
         final DateTime expirationDate = DateTime.fromMillisecondsSinceEpoch(0)
-            .add(Duration(seconds: decodedToken["exp"]));
+            .add(Duration(seconds: payload["exp"]));
         return DateTime.now().isAfter(expirationDate);
       } else {
         return true;
