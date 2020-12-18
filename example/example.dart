@@ -13,13 +13,14 @@ main() {
   // Print one of its property(example: name):
   print(payload['name']);
 
-  // Check if the token has an expiry time
-  if (payload['exp'] != null) {
-    // Token has a expiry time
-    if (!Jwt.isExpired(token)) {
-      // Can be used for auth state
-    }
+  // To check if token is expired
+  bool isExpired = Jwt.isExpired(token);
+  print(isExpired);
+
+  // Can be used for auth state
+  if (!isExpired) {
+    //   Token isn't expired
   } else {
-    print('Given token dosen\'t expire');
+    //   Token is expired
   }
 }

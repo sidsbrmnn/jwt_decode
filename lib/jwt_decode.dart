@@ -38,17 +38,17 @@ class Jwt {
   }
 
   static bool isExpired(String /*!*/ token) {
-    try {
-      final Map<String, dynamic> payload = parseJwt(token);
-      if (payload != null) {
+    final Map<String, dynamic> payload = parseJwt(token);
+    if (payload != null) {
+      if (payload['exp'] != null) {
         final DateTime expirationDate = DateTime.fromMillisecondsSinceEpoch(0)
             .add(Duration(seconds: payload["exp"]));
         return DateTime.now().isAfter(expirationDate);
       } else {
-        return true;
+        return false;
       }
-    } catch (e) {
-      throw Exception("Given token dosen't expire");
+    } else {
+      return true;
     }
   }
 }
