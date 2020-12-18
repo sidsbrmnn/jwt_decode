@@ -36,4 +36,19 @@ class Jwt {
 
     return utf8.decode(base64Url.decode(output));
   }
+
+  static bool isExpired(String /*!*/ token) {
+    try {
+      final Map<String, dynamic> decodedToken = parseJwt(token);
+      if (decodedToken != null) {
+        final DateTime expirationDate = DateTime.fromMillisecondsSinceEpoch(0)
+            .add(Duration(seconds: decodedToken["exp"]));
+        return DateTime.now().isAfter(expirationDate);
+      } else {
+        return true;
+      }
+    } catch (e) {
+      throw Exception("Given token dosen't expire");
+    }
+  }
 }
