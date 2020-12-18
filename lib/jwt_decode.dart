@@ -3,7 +3,7 @@ library jwt_decode;
 import 'dart:convert';
 
 class Jwt {
-  static Map<String, dynamic> parseJwt(String token) {
+  static Map<String, dynamic> parseJwt(String /*!*/ token) {
     final parts = token.split('.');
     if (parts.length != 3) {
       throw FormatException('Invalid token.');
@@ -18,7 +18,7 @@ class Jwt {
     return payloadMap;
   }
 
-  static String _decodeBase64(String str) {
+  static String _decodeBase64(String /*!*/ str) {
     String output = str.replaceAll('-', '+').replaceAll('_', '/');
 
     switch (output.length % 4) {
