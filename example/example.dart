@@ -3,15 +3,20 @@ import 'package:jwt_decode/jwt_decode.dart';
 main() {
   // Sample token
   String token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKV1QgRGVjb2RlIiwiaWF0IjoxNjA4NTgxNzczLCJleHAiOjE2NDAxMTc3NzMsImF1ZCI6Ind3dy5qd3RkZWNvZGUuY29tIiwic3ViIjoiQSBzYW1wbGUgSldUIiwibmFtZSI6IlZhcnVuIFMgQXRocmV5YSIsImVtYWlsIjoidmFydW4uc2F0aHJleWFAZ21haWwuY29tIiwicm9sZSI6IkRldmVsb3BlciJ9.vXE9ogUeMMsOTz2XQYHxE2hihVKyyxrhi_qfhJXamPQ';
 
   // To decode the token
   Map<String, dynamic> payload = Jwt.parseJwt(token);
   // Print the payload
   print(payload);
 
-  // Print one of its property(example: name):
-  print(payload['name']);
+  // Print one of its property(example: email):
+  print(payload['email']);
+
+//   To get expiry date
+  DateTime expiryDate = Jwt.getExpireyDate(token);
+//   Print the expiry date
+  print(expiryDate);
 
   // To check if token is expired
   bool isExpired = Jwt.isExpired(token);
