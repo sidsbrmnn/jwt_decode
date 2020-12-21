@@ -1,5 +1,5 @@
 name: jwt_decode
-description: A Dart package to decode jsonwebtokens
+description: A Dart package to decode jsonwebtokens, and to chack and give its expiry dates
 version: 0.1.0
 homepage: https://github.com/sidsbrmnn/jwt_decode
 
