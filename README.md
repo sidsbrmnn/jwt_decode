@@ -17,7 +17,7 @@ Map<String, dynamic> payload = Jwt.parseJwt(token);
 
 print(payload);
 
-// After decoding payload would look like this
+// After decoding, payload would look like this:
 //  payload = {
 //    'iss': 'JWT Decode',
 //    'iat': 1608581773,
@@ -27,7 +27,7 @@ print(payload);
 //    'name': 'Varun S Athreya',
 //    'email': 'varun.sathreya@gmail.com',
 //    'role': 'Developer'
-//  };
+//  }
 ```
 
 #### Getting expiry date
@@ -43,8 +43,8 @@ DateTime expiryDate = Jwt.getExpireyDate(token);
 
 print(expiryDate);
 
-// The expiry date would look like
-// 2021-12-22 01:46:13.000
+// The expiry date would look like:
+// expiryDate = 2021-12-22 01:46:13.000
 ```
 
 #### Checking weather the token has expired or not
@@ -64,6 +64,6 @@ bool isExpired = Jwt.isExpired(token);
 
 print(isExpired);
 
-// The output would be
-// false
+// The output would be:
+// isExpired = false
 ```

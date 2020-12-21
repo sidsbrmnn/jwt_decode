@@ -3,7 +3,7 @@
 -   Migrated to dart null-safety standards
 -   Features added:
     -   To check if the token is expired or not
-    -   Get expiry date
+    -   Get the expiry date
 -   Added examples and test cases
 
 ## [0.1.0] - 26-01-2020
