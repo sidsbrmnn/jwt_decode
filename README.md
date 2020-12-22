@@ -1,6 +1,6 @@
 # jwt_decode
 
-A easy dart package to decode jsonwebtokens, and to chack and give its expiry dates.
+A easy dart package to decode JSON Web Tokens, and to check and give its expiry dates.
 
 ## Using
 
@@ -32,14 +32,14 @@ print(payload);
 
 #### Getting expiry date
 
-To get the expiery date of the given token pass the token in the function `getExpireyDate()`.
+To get the expiry date of the given token pass the token in the function `getExpiryDate()`.
 
 ```dart
 import 'package:jwt_decode/jwt_decode.dart';
 
 String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKV1QgRGVjb2RlIiwiaWF0IjoxNjA4NTgxNzczLCJleHAiOjE2NDAxMTc3NzMsImF1ZCI6Ind3dy5qd3RkZWNvZGUuY29tIiwic3ViIjoiQSBzYW1wbGUgSldUIiwibmFtZSI6IlZhcnVuIFMgQXRocmV5YSIsImVtYWlsIjoidmFydW4uc2F0aHJleWFAZ21haWwuY29tIiwicm9sZSI6IkRldmVsb3BlciJ9.vXE9ogUeMMsOTz2XQYHxE2hihVKyyxrhi_qfhJXamPQ';
 
-DateTime expiryDate = Jwt.getExpireyDate(token);
+DateTime expiryDate = Jwt.getExpiryDate(token);
 
 print(expiryDate);
 
@@ -53,7 +53,7 @@ To check weather the token has expired or not pass the token in the function `is
 
 #### Getting expiry date
 
-To get the expiery date of the given token pass the token in the function `getExpireyDate()`.
+To get the expiry date of the given token pass the token in the function `getExpiryDate()`.
 
 ```dart
 import 'package:jwt_decode/jwt_decode.dart';

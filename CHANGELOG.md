@@ -1,6 +1,5 @@
 ## [0.1.1] - <Set Date>
 
--   Migrated to dart null-safety standards
 -   Features added:
     -   To check if the token is expired or not
     -   Get the expiry date

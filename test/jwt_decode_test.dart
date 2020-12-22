@@ -23,9 +23,8 @@ void main() {
   });
 
   test('getting expiry date', () {
-    expect(
-        Jwt.getExpireyDate(token), DateTime.parse('2021-12-22 01:46:13.000'));
-    expect(() => Jwt.getExpireyDate(invalidToken), throwsFormatException);
+    expect(Jwt.getExpiryDate(token), DateTime.parse('2021-12-22 01:46:13.000'));
+    expect(() => Jwt.getExpiryDate(invalidToken), throwsFormatException);
   });
 
   test('checking if token is expired', () {
