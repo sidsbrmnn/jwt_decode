@@ -36,4 +36,22 @@ class Jwt {
 
     return utf8.decode(base64Url.decode(output));
   }
+
+  static bool isExpired(String /*!*/ token) {
+    final DateTime expirationDate = getExpiryDate(token);
+    if (expirationDate != null) {
+      return DateTime.now().isAfter(expirationDate);
+    } else {
+      return false;
+    }
+  }
+
+  static DateTime getExpiryDate(String /*!*/ token) {
+    final Map<String, dynamic> payload = parseJwt(token);
+    if (payload['exp'] != null) {
+      return DateTime.fromMillisecondsSinceEpoch(0)
+          .add(Duration(seconds: payload["exp"]));
+    }
+    return null;
+  }
 }
