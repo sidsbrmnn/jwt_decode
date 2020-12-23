@@ -1,4 +1,4 @@
-## [0.2.0] - <Set Date>
+## [0.2.0] - 23-12-2020
 
 -   Features added:
     -   To check if the token is expired or not
