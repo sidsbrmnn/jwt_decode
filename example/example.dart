@@ -14,7 +14,8 @@ main() {
   print(payload['email']);
 
 //   To get expiry date
-  DateTime expiryDate = Jwt.getExpiryDate(token);
+//   Note: The return value from getExpiryDate function is nullable.
+  DateTime? expiryDate = Jwt.getExpiryDate(token);
 //   Print the expiry date
   print(expiryDate);
 

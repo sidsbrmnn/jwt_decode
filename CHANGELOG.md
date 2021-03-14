@@ -1,3 +1,8 @@
+## [0.3.0] - 14-03-2021
+
+- Migrated the package to null safety standards.
+- Migrated from flutter package to dart package.
+
 ## [0.2.0] - 23-12-2020
 
 -   Features added:

@@ -3,7 +3,7 @@ library jwt_decode;
 import 'dart:convert';
 
 class Jwt {
-  static Map<String, dynamic> parseJwt(String /*!*/ token) {
+  static Map<String, dynamic> parseJwt(String token) {
     final parts = token.split('.');
     if (parts.length != 3) {
       throw FormatException('Invalid token.');
@@ -18,7 +18,7 @@ class Jwt {
     return payloadMap;
   }
 
-  static String _decodeBase64(String /*!*/ str) {
+  static String _decodeBase64(String str) {
     String output = str.replaceAll('-', '+').replaceAll('_', '/');
 
     switch (output.length % 4) {
@@ -37,8 +37,8 @@ class Jwt {
     return utf8.decode(base64Url.decode(output));
   }
 
-  static bool isExpired(String /*!*/ token) {
-    final DateTime expirationDate = getExpiryDate(token);
+  static bool isExpired(String token) {
+    final DateTime? expirationDate = getExpiryDate(token);
     if (expirationDate != null) {
       return DateTime.now().isAfter(expirationDate);
     } else {
@@ -46,7 +46,7 @@ class Jwt {
     }
   }
 
-  static DateTime getExpiryDate(String /*!*/ token) {
+  static DateTime? getExpiryDate(String token) {
     final Map<String, dynamic> payload = parseJwt(token);
     if (payload['exp'] != null) {
       return DateTime.fromMillisecondsSinceEpoch(0)
