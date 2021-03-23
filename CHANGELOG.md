@@ -1,3 +1,8 @@
+## [0.3.1] - 23-03-2021
+
+- Fix manual dependency override for test package
+- Fix failing test cases for non-UTC+5:30 timezones
+
 ## [0.3.0] - 14-03-2021
 
 - Migrated the package to null safety standards.
