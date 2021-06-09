@@ -4,7 +4,7 @@ A easy dart package to decode JSON Web Tokens, and to check and give its expiry 
 
 ## Using
 
-#### Decode a token
+### Decode a token
 
 The easiest way to use this library is via the top-level function `parseJwt()`.
 
@@ -30,7 +30,7 @@ print(payload);
 //  }
 ```
 
-#### Getting expiry date
+### Getting expiry date
 
 To get the expiry date of the given token pass the token in the function `getExpiryDate()`.
 `Note: The return value from this function is nullable`.
@@ -48,23 +48,6 @@ print(expiryDate);
 // expiryDate = 2021-12-22 01:46:13.000
 ```
 
-#### Checking weather the token has expired or not
+### Checking weather the token has expired or not
 
 To check weather the token has expired or not pass the token in the function `isExpired()`.
-
-#### Getting expiry date
-
-To get the expiry date of the given token pass the token in the function `getExpiryDate()`.
-
-```dart
-import 'package:jwt_decode/jwt_decode.dart';
-
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKV1QgRGVjb2RlIiwiaWF0IjoxNjA4NTgxNzczLCJleHAiOjE2NDAxMTc3NzMsImF1ZCI6Ind3dy5qd3RkZWNvZGUuY29tIiwic3ViIjoiQSBzYW1wbGUgSldUIiwibmFtZSI6IlZhcnVuIFMgQXRocmV5YSIsImVtYWlsIjoidmFydW4uc2F0aHJleWFAZ21haWwuY29tIiwicm9sZSI6IkRldmVsb3BlciJ9.vXE9ogUeMMsOTz2XQYHxE2hihVKyyxrhi_qfhJXamPQ';
-
-bool isExpired = Jwt.isExpired(token);
-
-print(isExpired);
-
-// The output would be:
-// isExpired = false
-```

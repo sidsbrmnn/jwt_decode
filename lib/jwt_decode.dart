@@ -49,7 +49,7 @@ class Jwt {
   static DateTime? getExpiryDate(String token) {
     final Map<String, dynamic> payload = parseJwt(token);
     if (payload['exp'] != null) {
-      return DateTime.fromMillisecondsSinceEpoch(0)
+      return DateTime.fromMillisecondsSinceEpoch(0, isUtc: true)
           .add(Duration(seconds: payload["exp"]));
     }
     return null;
