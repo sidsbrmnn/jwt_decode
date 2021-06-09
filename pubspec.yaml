@@ -1,10 +1,10 @@
 name: jwt_decode
 description: A easy dart package to decode JSON Web Tokens, and to check and give its expiry dates
-version: 0.2.0
+version: 0.3.1
 homepage: https://github.com/sidsbrmnn/jwt_decode
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
-dependencies:
+dev_dependencies:
   test: ^1.16.8
