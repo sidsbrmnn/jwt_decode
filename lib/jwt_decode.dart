@@ -3,8 +3,12 @@ library jwt_decode;
 import 'dart:convert';
 
 class Jwt {
+  /// Decode the JWT token in string format into a `Map<String, dynamic>` fomrat
+  /// This map contains the decoded JSON payload.
+  ///
+  /// Throws [FormatException] if the `token` or the `payload` is invalid.
   static Map<String, dynamic> parseJwt(String token) {
-    final parts = token.split('.');
+    final parts = token.split('.'); // Splits the string by `.`
     if (parts.length != 3) {
       throw FormatException('Invalid token.');
     }
@@ -19,7 +23,11 @@ class Jwt {
   }
 
   static String _decodeBase64(String str) {
-    String output = str.replaceAll('-', '+').replaceAll('_', '/');
+    String output = str
+        .replaceAll('-', '+')
+        .replaceAll('_', '/'); // Replaces all `-` with `_` and `+` with `/`
+
+    /// Decoding logic
 
     switch (output.length % 4) {
       case 0:
@@ -37,6 +45,11 @@ class Jwt {
     return utf8.decode(base64Url.decode(output));
   }
 
+  /// Identifies weather the token as expired or not
+  ///
+  /// Returns boolean value, true if expired and false if not expired.
+  ///
+  /// Throws [FormatException] if the `token` or the `payload` is invalid.
   static bool isExpired(String token) {
     final DateTime? expirationDate = getExpiryDate(token);
     if (expirationDate != null) {
@@ -46,6 +59,11 @@ class Jwt {
     }
   }
 
+  /// Returns the expiry date of the token
+  ///
+  /// returns null if there isn't any expiry date
+  ///
+  /// Throws [FormatException] if the `token` or the `payload` is invalid.
   static DateTime? getExpiryDate(String token) {
     final Map<String, dynamic> payload = parseJwt(token);
     if (payload['exp'] != null) {
