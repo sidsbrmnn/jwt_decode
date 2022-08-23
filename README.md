@@ -48,6 +48,6 @@ print(expiryDate);
 // expiryDate = 2021-12-22 01:46:13.000
 ```
 
-### Checking weather the token has expired or not
+### Checking whether the token has expired or not
 
-To check weather the token has expired or not pass the token in the function `isExpired()`.
+To check whether the token has expired or not pass the token in the function `isExpired()`.
