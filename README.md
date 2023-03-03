@@ -2,6 +2,8 @@
 
 `jwt_decode` is a lightweight library for decoding JSON Web Tokens (JWTs) in Dart.
 
+**IMPORTANT**: This library does not validate the tokens. It can decode any well-formed ones.
+
 ## Installation
 
 Add `jwt_decode` to your project's pubspec.yaml file:
