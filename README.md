@@ -1,52 +1,61 @@
 # jwt_decode
 
-A easy dart package to decode JSON Web Tokens, and to check and give its expiry dates.
+`jwt_decode` is a lightweight library for decoding JSON Web Tokens (JWTs) in Dart.
+
+## Installation
+
+Add `jwt_decode` to your project's pubspec.yaml file:
+
+```yaml
+dependencies:
+  jwt_decode: ^0.3.1
+```
+
+Then run `flutter pub get` to install the package.
 
 ## Using
 
-### Decode a token
-
-The easiest way to use this library is via the top-level function `parseJwt()`.
+Here's an example of how to use `jwt_decode` to decode a JWT:
 
 ```dart
 import 'package:jwt_decode/jwt_decode.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKV1QgRGVjb2RlIiwiaWF0IjoxNjA4NTgxNzczLCJleHAiOjE2NDAxMTc3NzMsImF1ZCI6Ind3dy5qd3RkZWNvZGUuY29tIiwic3ViIjoiQSBzYW1wbGUgSldUIiwibmFtZSI6IlZhcnVuIFMgQXRocmV5YSIsImVtYWlsIjoidmFydW4uc2F0aHJleWFAZ21haWwuY29tIiwicm9sZSI6IkRldmVsb3BlciJ9.vXE9ogUeMMsOTz2XQYHxE2hihVKyyxrhi_qfhJXamPQ';
-
-Map<String, dynamic> payload = Jwt.parseJwt(token);
-
-print(payload);
-
-// After decoding, payload would look like this:
-//  payload = {
-//    'iss': 'JWT Decode',
-//    'iat': 1608581773,
-//    'exp': 1640117773,
-//    'aud': 'www.jwtdecode.com',
-//    'sub': 'A sample JWT',
-//    'name': 'Varun S Athreya',
-//    'email': 'varun.sathreya@gmail.com',
-//    'role': 'Developer'
-//  }
+void main() {
+  final String token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyMzkwMjJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+  final Map<String, dynamic> decodedToken = Jwt.parseJwt(token);
+  print(decodedToken);
+}
 ```
 
-### Getting expiry date
+This will output the following:
 
-To get the expiry date of the given token pass the token in the function `getExpiryDate()`.
-`Note: The return value from this function is nullable`.
-
-```dart
-import 'package:jwt_decode/jwt_decode.dart';
-
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKV1QgRGVjb2RlIiwiaWF0IjoxNjA4NTgxNzczLCJleHAiOjE2NDAxMTc3NzMsImF1ZCI6Ind3dy5qd3RkZWNvZGUuY29tIiwic3ViIjoiQSBzYW1wbGUgSldUIiwibmFtZSI6IlZhcnVuIFMgQXRocmV5YSIsImVtYWlsIjoidmFydW4uc2F0aHJleWFAZ21haWwuY29tIiwicm9sZSI6IkRldmVsb3BlciJ9.vXE9ogUeMMsOTz2XQYHxE2hihVKyyxrhi_qfhJXamPQ';
-
-DateTime? expiryDate = Jwt.getExpiryDate(token);
-
-print(expiryDate);
-
-// The expiry date would look like:
-// expiryDate = 2021-12-22 01:46:13.000
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022,
+  "exp": 1516239022
+}
 ```
+
+## API Reference
+
+### `Jwt.parseJwt(String token)`
+
+Parses the given JWT and returns a map containing the token's claims.
+
+### `Jwt.getExpiryDate(String token)`
+
+Parses the given JWT and returns the `DateTime` object containing the
+token's expiry date.
+
+## Contributing
+
+Contributions are welcome! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information.
+
+## License
+
+`jwt_decode` is licensed under the [BSD 3-clause license](LICENSE).
 
 ### Checking whether the token has expired or not
 
