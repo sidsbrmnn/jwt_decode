@@ -47,7 +47,12 @@ Parses the given JWT and returns a map containing the token's claims.
 ### `Jwt.getExpiryDate(String token)`
 
 Parses the given JWT and returns the `DateTime` object containing the
-token's expiry date.
+token's expiry date if the token is valid and `null` if not.
+
+### `Jwt.isExpired(String token)`
+
+Parses the given JWT and returns `true` if the token is still valid,
+and `false` otherwise.
 
 ## Contributing
 
@@ -56,7 +61,3 @@ Contributions are welcome! Please see our [Contributing Guidelines](CONTRIBUTING
 ## License
 
 `jwt_decode` is licensed under the [BSD 3-clause license](LICENSE).
-
-### Checking whether the token has expired or not
-
-To check whether the token has expired or not pass the token in the function `isExpired()`.
